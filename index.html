@@ -500,9 +500,9 @@ setInterval(async () => {
     (data || []).forEach(row => {
       state[row.id] = { done: row.done, assignee: row.assignee || '', due: row.due || '' };
     });
-    syncUI('ok', 'On ✓');
+    syncUI('ok', 'En vivo ✓');
     renderAll();
-  } catch(e) { syncUI('err', 'Off'); }
+  } catch(e) { syncUI('err', 'Sin conexión'); }
 }, 12000);
 
 /* ══ HELPERS ══ */
@@ -726,8 +726,9 @@ async function submitAdd() {
   custom[addPhaseId].push({id: newId, ...meta});
   const assignee = MEMBERS.find(m=>document.getElementById('ac-'+m.id)?.classList.contains('sel'))?.id || '';
   state[newId] = {done: false, assignee, due: document.getElementById('a-due').value};
+  const savedPhaseId = addPhaseId; // guardar antes de que closeAdd() lo ponga en null
   renderAll(); closeAdd();
-  try { await insertCustomTask(newId, addPhaseId, meta); }
+  try { await insertCustomTask(newId, savedPhaseId, meta); }
   catch(e) { console.error(e); syncUI('err', 'Error al guardar tarea'); }
 }
 
