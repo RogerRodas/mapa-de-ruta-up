@@ -159,8 +159,8 @@ header{position:sticky;top:0;z-index:100;background:rgba(13,15,26,0.9);backdrop-
 .mchk .nm{font-size:12px;color:var(--muted)}
 .mchk.sel{border-color:var(--pur-border);background:var(--pur-bg);}
 .mchk.sel .nm{color:var(--text)}
-.msolo-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-.msolo{display:flex;align-items:center;gap:6px;padding:6px 13px;border-radius:20px;border:1px solid var(--border2);cursor:pointer;transition:all .15s;user-select:none;font-size:12px;color:var(--muted);}
+.msolo-grid{display:flex;flex-direction:row;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.msolo{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:20px;border:1px solid var(--border2);cursor:pointer;transition:all .15s;user-select:none;font-size:12px;color:var(--muted);white-space:nowrap;}
 .msolo .av{width:18px;height:18px;border-radius:50%;font-size:8px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;color:#fff;}
 .msolo.sel{border-color:var(--pur-border);background:var(--pur-bg);color:var(--text)}
 .modal-actions{display:flex;gap:8px;margin-top:1.2rem;}
@@ -223,7 +223,7 @@ footer strong{color:var(--muted)}
     <button class="fbtn"        id="f-shared" onclick="setFilter('shared')">Compartidas</button>
     <div class="filter-sep"></div>
     <span class="filter-label">Responsable</span>
-    <div id="mbr-filters"></div>
+    <div id="mbr-filters" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;"></div>
   </div>
   <div id="phases-container"></div>
 </div>
