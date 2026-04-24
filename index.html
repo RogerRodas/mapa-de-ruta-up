@@ -500,9 +500,9 @@ setInterval(async () => {
     (data || []).forEach(row => {
       state[row.id] = { done: row.done, assignee: row.assignee || '', due: row.due || '' };
     });
-    syncUI('ok', 'En vivo ✓');
+    syncUI('ok', 'On ✓');
     renderAll();
-  } catch(e) { syncUI('err', 'Sin conexión'); }
+  } catch(e) { syncUI('err', 'Off'); }
 }, 12000);
 
 /* ══ HELPERS ══ */
